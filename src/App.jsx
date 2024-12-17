@@ -15,8 +15,24 @@ function App() {
 
   return (
     <div>
-      <h1>Hushållsbudget</h1>
-      
+      <h2>Hushållsbudget</h2>
+      <div>
+        <input
+          type='text'
+          placeholder='Kategori'
+          value={category}
+          onChange={(e) => setCategory(e.target.value)}
+        />
+        <input
+          type='text'
+          placeholder='Summa'
+          value={amount}
+          onChange={(e) => setAmount(e.target.value)}
+        />
+        <button onClick={addExpense}>
+          Lägg till utgift
+        </button>
+      </div>
     </div>
   )
 }
