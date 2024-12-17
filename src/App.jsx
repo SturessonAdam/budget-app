@@ -22,6 +22,11 @@ function App() {
     }
   }
 
+  const removeExpense = (id) => {
+    const updatedExpenses = expenses.filter((expense) => expense.id !== id);
+    setExpenses(updatedExpenses);
+  }
+
   const totalAmount = expenses.reduce((sum, expense) => sum + expense.amount, 0);
 
   return (
@@ -47,9 +52,12 @@ function App() {
 
       <h2>Utgifter</h2>
       <ul>
-        {expenses.map((expense, index) => (
-          <li key={index}>
-            {expense.category}: {expense.amount} kr
+        {expenses.map((expense) => (
+          <li key={expense.id}>
+            <span>
+              {expense.category}: {expense.amount} kr
+            </span>
+            <button onClick={() => removeExpense(expense.id)}>Ta bort</button>
           </li>
         ))}
       </ul>
